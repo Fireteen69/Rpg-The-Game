@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://dp0m0052245la"]
+
+[ext_resource type="Script" path="res://Bullet.gd" id="1_m5omt"]
+[ext_resource type="Texture2D" uid="uid://c0x06v0gpmfeh" path="res://Assets/FX/Death Explosion.png" id="2_85g66"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et3j1"]
+atlas = ExtResource("2_85g66")
+region = Rect2(0, 0, 50, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjq31"]
+atlas = ExtResource("2_85g66")
+region = Rect2(50, 0, 50, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtoc8"]
+atlas = ExtResource("2_85g66")
+region = Rect2(100, 0, 50, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxrdg"]
+atlas = ExtResource("2_85g66")
+region = Rect2(150, 0, 50, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_naxfe"]
+atlas = ExtResource("2_85g66")
+region = Rect2(200, 0, 50, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0mq0"]
+atlas = ExtResource("2_85g66")
+region = Rect2(250, 0, 50, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh0fo"]
+atlas = ExtResource("2_85g66")
+region = Rect2(300, 0, 50, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uc8j"]
+atlas = ExtResource("2_85g66")
+region = Rect2(350, 0, 50, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_krjhv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et3j1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjq31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtoc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxrdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_naxfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0mq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hh0fo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uc8j")
+}],
+"loop": true,
+"name": &"explosion",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0xqcp"]
+radius = 6.7082
+
+[node name="Bullet" type="Area2D"]
+show_behind_parent = true
+z_index = 1
+script = ExtResource("1_m5omt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_krjhv")
+animation = &"explosion"
+frame_progress = 0.609947
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+top_level = true
+y_sort_enabled = true
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_0xqcp")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
+one_shot = true
+autostart = true

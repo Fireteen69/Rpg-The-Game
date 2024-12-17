@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://br36xgwvkjnnd"]
+
+[ext_resource type="PackedScene" uid="uid://kjpjkk8kxfyp" path="res://tile_map.tscn" id="1_p4kp0"]
+[ext_resource type="PackedScene" uid="uid://wlm6qoodfdg0" path="res://Gunslinger.tscn" id="2_ti6fi"]
+[ext_resource type="PackedScene" uid="uid://0p1calordvkk" path="res://enemy.tscn" id="3_j0h0o"]
+[ext_resource type="PackedScene" uid="uid://cr7i00oay1rqe" path="res://character_body_2d.tscn" id="4_mox8f"]
+
+[node name="main" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_p4kp0")]
+position = Vector2(0, 15)
+
+[node name="Gunslinger" parent="." instance=ExtResource("2_ti6fi")]
+position = Vector2(183, 32)
+
+[node name="Enemy" parent="." instance=ExtResource("3_j0h0o")]
+position = Vector2(182, 83)
+
+[node name="player" parent="." instance=ExtResource("4_mox8f")]
+position = Vector2(81, 177)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="TextEdit" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_bottom = 0.021
+offset_left = -236.0
+offset_top = 40.0
+offset_right = -72.0
+offset_bottom = 34.392
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 0
+offset_left = -69.0
+offset_top = 86.0
+offset_right = -29.0
+offset_bottom = 144.0
+
+[node name="health" type="ProgressBar" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="stamina" type="ProgressBar" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = -305.0
+offset_top = 188.0
+offset_right = -265.0
+offset_bottom = 188.0
+
+[node name="ammo" type="HBoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Panel/ammo"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/ammo/HBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/ammo/HBoxContainer2/Label"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="revives" type="HBoxContainer" parent="CanvasLayer/Panel"]
+offset_left = 305.0
+offset_top = -188.0
+offset_right = 345.0
+offset_bottom = -148.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Panel/revives"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/revives/HBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/revives/HBoxContainer2/Label"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="stamina_pot" type="HBoxContainer" parent="CanvasLayer/Panel"]
+offset_left = 305.0
+offset_top = -188.0
+offset_right = 345.0
+offset_bottom = -148.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Panel/stamina_pot"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/stamina_pot/HBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/stamina_pot/HBoxContainer2/Label"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
